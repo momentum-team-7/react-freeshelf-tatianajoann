@@ -40,7 +40,7 @@ const Book = (props) => {
         <p>{detailedDescription}</p>
         </div>
       </div>
-      <button onClick={onClick}>abc</button>
+      <button onClick={onClick}>{isLess ? "Read Less" : "Read More"}</button>
     </div>
   )
 }
