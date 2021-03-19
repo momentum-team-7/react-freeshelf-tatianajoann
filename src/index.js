@@ -6,24 +6,26 @@ import './app.css';
 
 const App = () => {
   const [books, setBook] = useState(data)
-  const [isLess, setisMore] = useState(false)
-  const onClick = () => setisMore(!isLess)
-  console.log(isLess)
+  // this is the state for the whole app, books = book data that was provided 
   return (
     <main>
       <h1>Free Shelf Thing</h1>
       {books.map((book) => (
         <div>
-        <Book isLess={isLess} image={book.coverImageUrl} title={book.title} author={book.author} description={book.shortDescription} url={book.url} publisher={book.publisher} publicationDate={book.publicationDate} detailedDescription={book.detailedDescription}/>
-        <button onClick={onClick}>abc</button>
+        <Book image={book.coverImageUrl} title={book.title} author={book.author} description={book.shortDescription} url={book.url} publisher={book.publisher} publicationDate={book.publicationDate} detailedDescription={book.detailedDescription}/>
         </div>
+        // for book in books, passing in the individual book data 
       ))}
     </main>
   )
 }
 
 const Book = (props) => {
-  const { isLess, image, title, author, description, url, publisher, publicationDate, detailedDescription} = props
+  const {image, title, author, description, url, publisher, publicationDate, detailedDescription} = props
+  const [isLess, setisMore] = useState(false)
+  // giving the component a state that can be true or false , using to show or hide html 
+  const onClick = () => setisMore(!isLess)
+  // toggle the state 
   return (
     <div className="books">
       <img src={image}></img>
@@ -32,27 +34,16 @@ const Book = (props) => {
         <h3>{author}</h3> 
         <p>{description}</p>
         <div style={isLess ? {} : { display: 'none' }}>
+          {/* style attribute is inline css ; ternary ; {true}:{false} so if false display none, if true display everything in this div*/}
         <div>{url}</div> 
         <div>{publisher} {publicationDate}</div>
         <p>{detailedDescription}</p>
         </div>
       </div>
-      
+      <button onClick={onClick}>abc</button>
     </div>
   )
 }
-
-// const MoreBtn = (props) => {
-//   return (
-//     <button onClick={HandleClick}>abc</button>
-//   )
-// }
-
-// const HandleClick = () => {
-//   setBook("help")
-// }
-
-
 
 
 
