@@ -35,10 +35,11 @@ const Book = (props) => {
         <p>{description}</p>
         <div style={isLess ? {} : { display: 'none' }}>
           {/* style attribute is inline css ; ternary ; {true}:{false} so if false display none, if true display everything in this div*/}
-        <div>{url}</div> 
-        <div>{publisher} {publicationDate}</div>
-        <p>{detailedDescription}</p>
-        </div>
+        <div>URL: {url}</div> 
+        <div>Publisher: {publisher} </div>
+        <div>Publication Date: {publicationDate}</div>
+        <p>Full Description: {detailedDescription}</p>
+        </div> 
       </div>
       <button onClick={onClick}>{isLess ? "Read Less" : "Read More"}</button>
     </div>
