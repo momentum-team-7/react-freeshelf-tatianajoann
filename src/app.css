@@ -1,3 +1,21 @@
+main {
+  font-family: "Arial";
+}
+
+button {
+  background: #ffffff;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #d3d3d3;
+  width: 100px;
+}
+button:hover {
+  text-decoration: underline;
+}
+button:focus {
+  outline: 0;
+}
+
 img {
   height: 100px;
   width: 75px;
